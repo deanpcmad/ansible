@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - import_tasks: tasks/chrony.yml
+    - import_tasks: tasks/apache2.yml
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/apps.yml

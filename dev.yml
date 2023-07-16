@@ -1,0 +1,7 @@
+---
+- hosts: dev
+  become: yes
+
+  tasks:
+    - import_tasks: tasks/docker.yml
+    - import_tasks: tasks/apps.yml
