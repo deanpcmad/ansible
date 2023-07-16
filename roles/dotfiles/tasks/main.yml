@@ -1,0 +1,9 @@
+---
+- name: Set gemrc
+  copy: src=./roles/dotfiles/files/gemrc dest=~/.gemrc
+- name: Set gitconfig
+  copy: src=./roles/dotfiles/files/gitconfig dest=~/.gitconfig
+- name: Set gitignore
+  copy: src=./roles/dotfiles/files/gitignore dest=~/.gitignore
+- name: Set irbrc
+  copy: src=./roles/dotfiles/files/irbrc dest=~/.irbrc

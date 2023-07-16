@@ -1,7 +1,28 @@
 ---
 - hosts: dev
-  become: yes
+  # become: yes
 
+  roles:
+    - dotfiles
+  
   tasks:
-    - import_tasks: tasks/docker.yml
-    - import_tasks: tasks/apps.yml
+  - name: Install fish
+    ansible.builtin.apt:
+      name: fish
+      state: present
+    become: yes
+  
+  - name: Generate an SSH Key
+    ansible.builtin.user:
+      name: dean
+      generate_ssh_key: yes
+  
+  - name: Change shell to fish
+    ansible.builtin.user:
+      name: dean
+      shell: /usr/bin/fish
+    become: yes
+
+  # tasks:
+  #   - import_tasks: tasks/docker.yml
+  #   - import_tasks: tasks/apps.yml
