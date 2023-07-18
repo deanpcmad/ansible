@@ -1,0 +1,11 @@
+---
+- hosts: local
+  become: true
+
+  roles:
+    - common
+    # - geerlingguy.mysql
+    # - ruby-source
+    # - nginx
+    # - redis
+    # - ufw

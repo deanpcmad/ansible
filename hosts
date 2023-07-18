@@ -1,3 +1,6 @@
+[local]
+vagrant ansible_host=192.168.56.22
+
 [ubuntu-test-1]
 192.168.0.174
 
