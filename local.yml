@@ -2,10 +2,12 @@
 - hosts: local
   become: true
 
+  vars:
+    docker_install_compose_plugin: true
+    docker_users:
+      - "{{ user }}"
+
   roles:
+    - update
     - common
-    # - geerlingguy.mysql
-    # - ruby-source
-    # - nginx
-    # - redis
-    # - ufw
+    - geerlingguy.docker
