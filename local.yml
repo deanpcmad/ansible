@@ -9,6 +9,9 @@
       - "{{ user }}"
 
   roles:
-    - update
-    - common
-    - geerlingguy.docker
+    # - update
+    # - common
+    # - geerlingguy.docker
+    - ssh-key
+    # - 1password
+    # - flatpak
