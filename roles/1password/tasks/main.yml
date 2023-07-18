@@ -1,0 +1,23 @@
+---
+- name: Download 1Password apt key
+  get_url:
+    url: https://downloads.1password.com/linux/keys/1password.asc
+    dest: /etc/apt/trusted.gpg.d/1password.asc
+
+- name: Add 1Password repository
+  apt_repository:
+    repo: "deb https://downloads.1password.com/linux/debian/amd64 stable main"
+    filename: 1password
+    state: present
+
+- name: Update cache
+  apt:
+    update_cache: true
+
+- name: Install 1Password and 1Password CLI
+  ansibe.builtin.apt:
+    name:
+      - 1password
+      - 1password-cli
+    state: present
+    update_cache: true
