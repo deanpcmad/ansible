@@ -1,9 +1,25 @@
 ---
-- hosts: all
+- hosts: dev
   become: yes
 
-  tasks:
-    - import_tasks: tasks/chrony.yml
-    - import_tasks: tasks/apache2.yml
-    - import_tasks: tasks/docker.yml
-    - import_tasks: tasks/apps.yml
+  # tasks:
+  #   - import_tasks: tasks/chrony.yml
+  #   - import_tasks: tasks/apache2.yml
+  #   # - import_tasks: tasks/docker.yml
+  #   # - import_tasks: tasks/apps.yml
+
+  vars:
+    docker_install_compose_plugin: true
+    rbenv:
+      env: user
+      default_ruby: 3.2.2
+      rubies:
+        - version: 3.2.2
+        - version: 3.1.4
+
+  roles:
+    # - common
+    # - dotfiles
+    # - flatpak
+    # - geerlingguy.docker
+    - zzet.rbenv
