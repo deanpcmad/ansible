@@ -1,20 +1,26 @@
-[local]
-vagrant ansible_host=192.168.56.22
+#[local]
+#vagrant ansible_host=192.168.56.22
 
 [ubuntu-test-1]
-192.168.0.174
+192.168.0.231
 
 [ubuntu-test-2]
-192.168.0.101
+192.168.0.232
 
-[ubuntu-test-3]
-192.168.0.164
+[debian-test-1]
+192.168.0.241
 
+[debian-test-2]
+192.168.0.242
 
 [multi:children]
 ubuntu-test-1
 ubuntu-test-2
-ubuntu-test-3
+debian-test-1
+#debian-test-2
 
-[dev]
-127.0.0.1  ansible_connection=local
+[jenkins-agents]
+192.168.0.242
+
+#[dev]
+#127.0.0.1  ansible_connection=local
