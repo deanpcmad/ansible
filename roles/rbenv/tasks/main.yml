@@ -20,6 +20,7 @@
       - gnupg
       - automake
     state: present
+  become: yes
 
 - name: Checkout rbenv repo to '{{ rbenv_root }}'
   git:
