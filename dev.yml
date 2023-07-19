@@ -1,19 +1,19 @@
 ---
 - hosts: dev
-  # become: yes
+  become: yes
 
   roles:
     # - dotfiles
     # - ssh-key
     # - rbenv
-    - {name: fish, become: yes}
+    - artis3n.tailscale
+    # - {name: fish, become: yes}
   
   vars:
     rbenv_versions:
       - 3.2.2
-      # - 3.2.1
-      # - 3.1.6
     rbenv_default_ruby: 3.2.2
+    tailscale_up_skip: true
   
   # tasks:
   #   - name: Install database libraries
