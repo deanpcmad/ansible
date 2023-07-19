@@ -10,10 +10,6 @@
     filename: 1password
     state: present
 
-- name: Update cache
-  ansible.builtin.apt:
-    update_cache: true
-
 - name: Install 1Password and 1Password CLI
   ansible.builtin.apt:
     name:
