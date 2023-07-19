@@ -20,7 +20,7 @@ debian-test-1
 #debian-test-2
 
 [jenkins-agents]
-192.168.0.242
+192.168.0.232
 
 #[dev]
 #127.0.0.1  ansible_connection=local

@@ -1,0 +1,18 @@
+---
+- hosts: jenkins-agents
+  become: yes
+
+  vars:
+    docker_install_compose_plugin: true
+    docker_install_compose: false
+    docker_users:
+      - dean
+      - jenkins
+
+  roles:
+    - update
+    - common
+    - users-dean
+    - users-jenkins
+    - geerlingguy.docker
+    - geerlingguy.java
