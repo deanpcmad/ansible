@@ -1,0 +1,5 @@
+---
+rbenv_root: "~/.rbenv"
+rbenv_versions:
+  - "3.2.2"
+rbenv_default_ruby: "3.2.2"

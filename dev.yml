@@ -3,26 +3,45 @@
   # become: yes
 
   roles:
-    - dotfiles
-    - ssh-key
-
+    # - dotfiles
+    # - ssh-key
+    - rbenv
+  
+  vars:
+    rbenv_versions:
+      - 3.2.2
+      # - 3.2.1
+      # - 3.1.6
+    rbenv_default_ruby: 3.2.2
+  
   # tasks:
-  # - name: Install fish
-  #   ansible.builtin.apt:
-  #     name: fish
-  #     state: present
-  #   become: yes
+  #   - name: Install database libraries
+  #     ansible.builtin.apt:
+  #       name:
+  #         - sqlite3
+  #         - libsqlite3-dev
+  #         - default-mysql-client
+  #         - default-libmysqlclient-dev
+  #         - libpq-dev
+  #       state: present
+  #   - name: Install additional tools
+  #     ansible.builtin.apt:
+  #       name:
+  #         - ffmpeg
+  #         - libvips42
+  #       state: present
 
-  # - name: Generate an SSH Key
-  #   ansible.builtin.user:
-  #     name: dean
-  #     generate_ssh_key: yes
+  #   - name: Install fish
+  #     ansible.builtin.apt:
+  #       name: fish
+  #       state: present
+  #     become: yes
 
-  # - name: Change shell to fish
-  #   ansible.builtin.user:
-  #     name: dean
-  #     shell: /usr/bin/fish
-  #   become: yes
+  #   - name: Change shell to fish
+  #     ansible.builtin.user:
+  #       name: dean
+  #       shell: /usr/bin/fish
+  #     become: yes
 
 
   # tasks:
