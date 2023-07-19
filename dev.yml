@@ -5,7 +5,8 @@
   roles:
     # - dotfiles
     # - ssh-key
-    - rbenv
+    # - rbenv
+    - {name: fish, become: yes}
   
   vars:
     rbenv_versions:
