@@ -22,12 +22,11 @@
     - dotfiles
     - rbenv
     - fish
+    - aws
     - flatpak
     - 1password
     - vscode
     - sublime
-    - nextcloud
-    - vlc
   
   tasks:
     - name: Remove Firefox-ESR

@@ -20,6 +20,16 @@
     name: org.mozilla.Thunderbird
     state: present
 
+- name: Install the Google Chrome flatpak
+  community.general.flatpak:
+    name: com.google.Chrome
+    state: present
+
+- name: Install the Nextcloud flatpak
+  community.general.flatpak:
+    name: com.nextcloud.desktopclient.nextcloud
+    state: present
+
 - name: Install the Spotify flatpak
   community.general.flatpak:
     name: com.spotify.Client
