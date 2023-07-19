@@ -3,32 +3,49 @@
   ansible.builtin.apt:
     name: flatpak
     state: present
+
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:
     name: flathub
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Install the Firefox flatpak
+  community.general.flatpak:
+    name: org.mozilla.firefox
+    state: present
+  
+- name: Install the Thunderbird flatpak
+  community.general.flatpak:
+    name: org.mozilla.Thunderbird
+    state: present
+
 - name: Install the Spotify flatpak
   community.general.flatpak:
     name: com.spotify.Client
     state: present
+
 - name: Install the Discord flatpak
   community.general.flatpak:
     name: com.discordapp.Discord
     state: present
+
 - name: Install the Obsidian flatpak
   community.general.flatpak:
     name: md.obsidian.Obsidian
     state: present
+
 - name: Install the Cryptomator flatpak
   community.general.flatpak:
     name: org.cryptomator.Cryptomator
     state: present
+
 - name: Install the Postman flatpak
   community.general.flatpak:
     name: com.getpostman.Postman
-    state: present 
+    state: present
+
 - name: Install the DBeaver flatpak
   community.general.flatpak:
     name: io.dbeaver.DBeaverCommunity
-    state: present 
+    state: present

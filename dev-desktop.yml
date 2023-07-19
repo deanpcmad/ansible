@@ -19,7 +19,6 @@
     - geerlingguy.docker
     - artis3n.tailscale
     - users-dean
-
     - dotfiles
     - rbenv
     - fish
@@ -27,6 +26,11 @@
     - 1password
   
   tasks:
+    - name: Remove Firefox-ESR
+      ansible.builtin.apt:
+        name: firefox-esr
+        state: absent
+
     - name: Install database libraries
       ansible.builtin.apt:
         name:
@@ -42,3 +46,8 @@
           - ffmpeg
           - libvips42
         state: present
+    
+    # KDE Tweaks
+    - name: Set the KDE theme to Breeze Dark
+      shell: "lookandfeeltool -a org.kde.breezedark.desktop"
+      become: no
