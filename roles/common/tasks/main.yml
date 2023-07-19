@@ -1,40 +1,5 @@
 ---
-- name: Install development requirements
-  ansible.builtin.apt:
-    name:
-      - autoconf
-      - patch
-      - rustc
-      - libyaml-dev
-      - libreadline6-dev
-      - libgmp-dev
-      - libncurses5-dev
-      - libffi-dev
-      - libgdbm6
-      - libgdbm-dev
-      - libdb-dev
-      - uuid-dev
-      - git
-      - zlib1g-dev
-      - build-essential
-      - libssl-dev
-      - gnupg
-      - unzip
-      - automake
-      - software-properties-common
-      - apt-transport-https
-      - ca-certificates
-    state: present
-- name: Install database libraries
-  ansible.builtin.apt:
-    name:
-      - libsqlite3-dev
-      - sqlite3
-      - default-mysql-client
-      - default-libmysqlclient-dev
-      - libpq-dev
-    state: present
-- name: Install additional tools
+- name: Install common tools
   ansible.builtin.apt:
     name:
       - htop
@@ -42,7 +7,8 @@
       - wget
       - curl
       - nano
-      - zsh
-      - ffmpeg
-      - libvips42
+      - unzip
+      - git
+      - software-properties-common
+      - apt-transport-https
     state: present
