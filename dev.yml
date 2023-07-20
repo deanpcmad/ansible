@@ -2,49 +2,66 @@
 - hosts: dev
   become: yes
 
-  roles:
-    # - dotfiles
-    # - ssh-key
-    # - rbenv
-    - artis3n.tailscale
-    # - {name: fish, become: yes}
-  
   vars:
+    docker_install_compose_plugin: true
+    docker_install_compose: false
+    docker_users:
+      - "dean"
     rbenv_versions:
       - 3.2.2
+      - 3.1.2
     rbenv_default_ruby: 3.2.2
     tailscale_up_skip: true
+
+  roles:
+    - update
+    - common
+    - geerlingguy.docker
+    - artis3n.tailscale
+    - users-dean
+    - { name: dotfiles, become: no }
+    - { name: rbenv, become: no }
+    - fish
+    - aws
+    - flatpak
+    # - 1password
+    - vscode
+    - sublime
   
-  # tasks:
-  #   - name: Install database libraries
-  #     ansible.builtin.apt:
-  #       name:
-  #         - sqlite3
-  #         - libsqlite3-dev
-  #         - default-mysql-client
-  #         - default-libmysqlclient-dev
-  #         - libpq-dev
-  #       state: present
-  #   - name: Install additional tools
-  #     ansible.builtin.apt:
-  #       name:
-  #         - ffmpeg
-  #         - libvips42
-  #       state: present
+  tasks:
+    - name: Remove Firefox-ESR
+      ansible.builtin.apt:
+        name: firefox-esr
+        state: absent
 
-  #   - name: Install fish
-  #     ansible.builtin.apt:
-  #       name: fish
-  #       state: present
-  #     become: yes
+    - name: Install database libraries
+      ansible.builtin.apt:
+        name:
+          - sqlite3
+          - libsqlite3-dev
+          - default-mysql-client
+          - default-libmysqlclient-dev
+          - libpq-dev
+        state: present
+    - name: Install additional tools
+      ansible.builtin.apt:
+        name:
+          - ffmpeg
+          - libvips42
+          - vlc
+          - libavcodec-extra
+        state: present
+    
+    # KDE Tweaks
+    # - name: Set the KDE theme to Breeze Dark
+    #   shell: "lookandfeeltool -a org.kde.breezedark.desktop"
+    #   become: no
 
-  #   - name: Change shell to fish
-  #     ansible.builtin.user:
-  #       name: dean
-  #       shell: /usr/bin/fish
-  #     become: yes
-
-
-  # tasks:
-  #   - import_tasks: tasks/docker.yml
-  #   - import_tasks: tasks/apps.yml
+    - name: KDE Taskbar
+      ansible.builtin.lineinfile:
+        path: "~/.config/plasma-org.kde.plasma.desktop-appletsrc"
+        regexp: '^launchers='
+        line: launchers=applications:systemsettings.desktop,applications:org.kde.konsole.desktop,preferred://filemanager,file:///var/lib/flatpak/exports/share/applications/org.mozilla.firefox.desktop,file:///var/lib/flatpak/exports/share/applications/org.mozilla.Thunderbird.desktop,applications:code.desktop,applications:code.desktop,applications:sublime_merge.desktop,applications:md.obsidian.Obsidian.desktop,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:1password.desktop
+        backup: true
+      become: no
+    
