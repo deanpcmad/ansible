@@ -24,7 +24,7 @@
     - { name: rbenv, become: no }
     - aws
     - flatpak
-    - 1password
+    # - 1password
     - vscode
     - sublime
     - kopia
