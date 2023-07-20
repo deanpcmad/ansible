@@ -24,10 +24,10 @@
     - fish
     - aws
     - flatpak
-    # - 1password
+    - 1password
     - vscode
     - sublime
-  
+
   tasks:
     - name: Remove Firefox-ESR
       ansible.builtin.apt:
@@ -51,17 +51,16 @@
           - vlc
           - libavcodec-extra
         state: present
-    
+
     # KDE Tweaks
     # - name: Set the KDE theme to Breeze Dark
     #   shell: "lookandfeeltool -a org.kde.breezedark.desktop"
     #   become: no
 
-    - name: KDE Taskbar
-      ansible.builtin.lineinfile:
-        path: "~/.config/plasma-org.kde.plasma.desktop-appletsrc"
-        regexp: '^launchers='
-        line: launchers=applications:systemsettings.desktop,applications:org.kde.konsole.desktop,preferred://filemanager,file:///var/lib/flatpak/exports/share/applications/org.mozilla.firefox.desktop,file:///var/lib/flatpak/exports/share/applications/org.mozilla.Thunderbird.desktop,applications:code.desktop,applications:code.desktop,applications:sublime_merge.desktop,applications:md.obsidian.Obsidian.desktop,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:1password.desktop
-        backup: true
-      become: no
-    
+    #- name: KDE Taskbar
+    #  ansible.builtin.lineinfile:
+    #    path: "~/.config/plasma-org.kde.plasma.desktop-appletsrc"
+    #    regexp: '^launchers='
+    #    line: launchers=applications:systemsettings.desktop,applications:org.kde.konsole.desktop,preferred://filemanager,file:///var/lib/flatpak/exports/share/applications/org.mozilla.firefox.desktop,file:///var/lib/flatpak/exports/share/applications/org.mozilla.Thunderbird.desktop,applications:code.desktop,applications:code.desktop,applications:sublime_merge.desktop,applications:md.obsidian.Obsidian.desktop,file:///var/lib/flatpak/exports/share/applications/com.spotify.Client.desktop,applications:1password.desktop
+    #    backup: true
+    #  become: no
