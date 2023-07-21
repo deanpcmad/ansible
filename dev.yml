@@ -52,3 +52,15 @@
           - vlc
           - libavcodec-extra
         state: present
+    
+    - name: Create plugins directory
+      file:
+        state: directory
+        path: '~/.var/app/org.mozilla.firefox/config/fontconfig'
+      become: no
+
+    - name: Fix Firefox Flatpak Fonts
+      ansible.builtin.get_url:
+        url: https://gist.githubusercontent.com/deanpcmad/396190f6bcf023d028ad8bb18debf30f/raw/fee14b1e38bf1c42dd8238100a5bf904299c81e5/fonts.conf 
+        dest: "~/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf"
+      become: no
