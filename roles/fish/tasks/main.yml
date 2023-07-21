@@ -29,15 +29,21 @@
     name: dean
     shell: /usr/bin/fish
 
-#- name: Check if .rbenv exists
-#  stat:
-#    path: "~/.rbenv"
-#  register: rbenv
-#  become: no
+- name: Check if .rbenv exists
+  stat:
+    path: "~/.rbenv"
+  register: rbenv
+  become: no
 
-#- name: Create rbenv config
-#  ansible.builtin.copy:
-#    dest: "~/.config/fish/functions/rbenv.fish"
-#    content: "status --is-interactive; and ~/.rbenv/bin/rbenv init - fish | source"
-#  when: rbenv.stat.exists and rbenv.stat.isdir
-#  become: no
+- name: Create functions directory
+  file:
+    state: directory
+    path: '~/.config/fish/functions'
+  become: no
+
+- name: Create rbenv config
+  ansible.builtin.copy:
+    dest: "~/.config/fish/functions/rbenv.fish"
+    content: "status --is-interactive; and ~/.rbenv/bin/rbenv init - fish | source"
+  when: rbenv.stat.exists and rbenv.stat.isdir
+  become: no
