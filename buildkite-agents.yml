@@ -1,5 +1,5 @@
 ---
-- hosts: jenkins-agents
+- hosts: buildkite-agents
   become: yes
 
   vars:
@@ -7,12 +7,13 @@
     docker_install_compose: false
     docker_users:
       - dean
-      - jenkins
+      - buildkite-agent
 
   roles:
     - update
     - common
     - users-dean
-    - users-jenkins
+    - buildkite-agent
     - geerlingguy.docker
-    - geerlingguy.java
+    - aws
+    - users-buildkite-agent
