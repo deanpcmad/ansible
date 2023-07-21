@@ -50,7 +50,7 @@
     src: default-gems
     dest: '~/.default-gems'
 
-- name: Install specified Ruby versions 
+- name: Install specified Ruby versions
   shell: "~/.rbenv/bin/rbenv install {{ item }}"
   args:
     creates: "~/.rbenv/versions/{{ item }}"
@@ -60,3 +60,8 @@
 
 - name: Set Ruby {{ rbenv_default_ruby }} as default
   shell: "{{ rbenv_root }}/bin/rbenv global {{ rbenv_default_ruby }} && {{ rbenv_root }}/bin/rbenv rehash"
+
+- name: Run rbenv rehash
+  ansible.builtin.user:
+    name: dean
+    shell: "{{ rbenv_root }}/bin/rbenv rehash"
