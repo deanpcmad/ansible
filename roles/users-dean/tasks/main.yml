@@ -3,6 +3,8 @@
   ansible.builtin.user:
     name: dean
     shell: /bin/bash
+    groups: sudo
+    append: yes
 
 - name: Create .ssh directory for 'dean'
   ansible.builtin.file:
