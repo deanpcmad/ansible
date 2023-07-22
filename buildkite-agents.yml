@@ -8,6 +8,7 @@
     docker_users:
       - dean
       - buildkite-agent
+    tailscale_up_skip: true
 
   roles:
     - update
@@ -15,5 +16,6 @@
     - users-dean
     - buildkite-agent
     - geerlingguy.docker
+    - artis3n.tailscale
     - aws
     - users-buildkite-agent
