@@ -10,15 +10,15 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
-- name: Install the Firefox flatpak
-  community.general.flatpak:
-    name: org.mozilla.firefox
-    state: present
+# - name: Install the Firefox flatpak
+#   community.general.flatpak:
+#     name: org.mozilla.firefox
+#     state: present
   
-- name: Install the Thunderbird flatpak
-  community.general.flatpak:
-    name: org.mozilla.Thunderbird
-    state: present
+# - name: Install the Thunderbird flatpak
+#   community.general.flatpak:
+#     name: org.mozilla.Thunderbird
+#     state: present
 
 - name: Install the Google Chrome flatpak
   community.general.flatpak:
