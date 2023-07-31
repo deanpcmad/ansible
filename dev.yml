@@ -36,9 +36,10 @@
         state: absent
     
     - name: Add Mozilla PPA
-      ansible.builtin.apt:
+      ansible.builtin.apt_repository:
         repo: "ppa:mozillateam/ppa"
         state: present
+        update_cache: true
     
     - name: Install Firefox and Thunderbird
       ansible.builtin.apt:
