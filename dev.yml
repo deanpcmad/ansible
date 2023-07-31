@@ -22,6 +22,7 @@
     #- fish
     #- { name: dotfiles, become: no }
     - { name: rbenv, become: no }
+    - debian-unstable
     - aws
     - flatpak
     - 1password
@@ -34,19 +35,6 @@
       ansible.builtin.apt:
         name: firefox-esr
         state: absent
-    
-    - name: Add Mozilla PPA
-      ansible.builtin.apt_repository:
-        repo: "ppa:mozillateam/ppa"
-        state: present
-        update_cache: true
-    
-    - name: Install Firefox and Thunderbird
-      ansible.builtin.apt:
-        name:
-          - firefox
-          - thunderbird
-        state: present
 
     - name: Install database libraries
       ansible.builtin.apt:
