@@ -61,7 +61,7 @@
 - name: Set Ruby {{ rbenv_default_ruby }} as default
   shell: "{{ rbenv_root }}/bin/rbenv global {{ rbenv_default_ruby }} && {{ rbenv_root }}/bin/rbenv rehash"
 
-- name: Run rbenv rehash
-  ansible.builtin.user:
-    name: dean
-    shell: "{{ rbenv_root }}/bin/rbenv rehash"
+# - name: Run rbenv rehash
+#   ansible.builtin.user:
+#     name: dean
+#     shell: "{{ rbenv_root }}/bin/rbenv rehash"
