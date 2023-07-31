@@ -19,8 +19,8 @@
     - geerlingguy.docker
     - artis3n.tailscale
     - users-dean
-    - fish
-    - { name: dotfiles, become: no }
+    #- fish
+    #- { name: dotfiles, become: no }
     - { name: rbenv, become: no }
     - aws
     - flatpak
@@ -34,6 +34,18 @@
       ansible.builtin.apt:
         name: firefox-esr
         state: absent
+    
+    - name: Add Mozilla PPA
+      ansible.builtin.apt:
+        repo: "ppa:mozillateam/ppa"
+        state: present
+    
+    - name: Install Firefox and Thunderbird
+      ansible.builtin.apt:
+        name:
+          - firefox
+          - thunderbird
+        state: present
 
     - name: Install database libraries
       ansible.builtin.apt:
@@ -44,6 +56,7 @@
           - default-libmysqlclient-dev
           - libpq-dev
         state: present
+
     - name: Install additional tools
       ansible.builtin.apt:
         name:
@@ -51,6 +64,7 @@
           - libvips42
           - vlc
           - libavcodec-extra
+          - zsh
         state: present
     
     # - name: Create plugins directory
