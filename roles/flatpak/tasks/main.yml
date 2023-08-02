@@ -14,7 +14,7 @@
 #   community.general.flatpak:
 #     name: org.mozilla.firefox
 #     state: present
-  
+
 # - name: Install the Thunderbird flatpak
 #   community.general.flatpak:
 #     name: org.mozilla.Thunderbird
@@ -50,10 +50,10 @@
     name: org.cryptomator.Cryptomator
     state: present
 
-- name: Install the Postman flatpak
-  community.general.flatpak:
-    name: com.getpostman.Postman
-    state: present
+# - name: Install the Postman flatpak
+#   community.general.flatpak:
+#     name: com.getpostman.Postman
+#     state: present
 
 - name: Install the DBeaver flatpak
   community.general.flatpak:
