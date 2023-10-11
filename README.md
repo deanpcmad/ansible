@@ -30,4 +30,11 @@ cd ansible
 ```bash
 # -K to enter sudo password
 ansible-playbook dev.yml -K
+
+# install fnm
+curl -fsSL https://fnm.vercel.app/install | bash
+source ~/.config/fish/conf.d/fnm.fish
+fnm install 18.17.0
+npm install -g npm
+npm install -g yarn
 ```
