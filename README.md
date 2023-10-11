@@ -1,8 +1,33 @@
-# Dean Ansible
+# My Ansible Playbooks
+
+This repo contains a collection of Ansible playbooks I use to configure my machines.
+
+## Initial Install
 
 ```bash
-ansible-galaxy install -r requirements.yml
+apt install -y python3-pip
 
+pip3 install ansible --break-system-packages
+
+git clone https://github.com/deanpcmad/ansible.git
+cd ansible
+
+~/.local/bin/ansible-galaxy install -r requirements.yml
+```
+
+## Dev Machines, running on Debian 12
+
+- Removes Firefox ESR and installs Firefox from the unstable repo.
+- Installs Docker
+- Installs VSCode
+- Installs Sublime Text & Sublime Merge
+- Installs Tailscale
+- Installs RBenv and installs Ruby 3.2.2 as part of that
+- Installs and configures Flatpak
+- Installs other apps such as 1Password, Spotify & Discord
+-
+
+```bash
 # -K to enter sudo password
-ansible-playbook playbook.yml -K
+ansible-playbook dev.yml -K
 ```
