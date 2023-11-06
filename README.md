@@ -25,7 +25,7 @@ cd ansible
 - Installs RBenv and installs Ruby 3.2.2 as part of that
 - Installs and configures Flatpak
 - Installs other apps such as 1Password, Spotify & Discord
--
+- Installs Fish shell and sets it as the default shell
 
 ```bash
 # -K to enter sudo password
