@@ -58,10 +58,12 @@
   loop_control:
     label: "Install Ruby {{ item }}"
 
+- name: Create symbolic link of lib to lib64
+  file:
+    src: "~/.rbenv/versions/{{ item }}/openssl/lib64"
+    dest: "~/.rbenv/versions/{{ item }}/openssl/lib"
+    state: link
+  loop: "{{ rbenv_versions }}"
+
 - name: Set Ruby {{ rbenv_default_ruby }} as default
   shell: "{{ rbenv_root }}/bin/rbenv global {{ rbenv_default_ruby }} && {{ rbenv_root }}/bin/rbenv rehash"
-
-# - name: Run rbenv rehash
-#   ansible.builtin.user:
-#     name: dean
-#     shell: "{{ rbenv_root }}/bin/rbenv rehash"

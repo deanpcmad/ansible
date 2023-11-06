@@ -41,9 +41,6 @@
     path: '~/.config/fish/functions'
   become: no
 
-- name: Create rbenv config
-  ansible.builtin.copy:
-    dest: "~/.config/fish/functions/rbenv.fish"
-    content: "status --is-interactive; and ~/.rbenv/bin/rbenv init - fish | source"
-  when: rbenv.stat.exists and rbenv.stat.isdir
+- name: Copy fish config
+  copy: src=./roles/fish/files/config.fish dest=~/.config/fish/config.fish
   become: no
