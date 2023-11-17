@@ -1,0 +1,57 @@
+---
+- hosts: dev
+  become: yes
+
+  vars:
+    docker_install_compose_plugin: true
+    docker_install_compose: false
+    docker_users:
+      - "dean"
+    rbenv_versions:
+      - 3.2.2
+      - 3.1.2
+    rbenv_default_ruby: 3.2.2
+    tailscale_up_skip: true
+
+  roles:
+    - update
+    - common
+    - geerlingguy.docker
+    - artis3n.tailscale
+    - users-dean
+    - fish
+    - { name: dotfiles, become: no }
+    - { name: rbenv, become: no }
+    #- debian-unstable
+    - aws
+    #- flatpak
+    #- 1password
+    #- vscode
+    #- sublime
+    #- kopia
+
+  tasks:
+    #- name: Remove Firefox-ESR
+    #  ansible.builtin.apt:
+    #    name: firefox-esr
+    #    state: absent
+
+    - name: Install database libraries
+      ansible.builtin.apt:
+        name:
+          - sqlite3
+          - libsqlite3-dev
+          - default-mysql-client
+          - default-libmysqlclient-dev
+          - libpq-dev
+        state: present
+
+    - name: Install additional tools
+      ansible.builtin.apt:
+        name:
+          - ffmpeg
+          - libvips42
+          #- vlc
+          #- libavcodec-extra
+          #- zsh
+        state: present
