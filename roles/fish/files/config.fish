@@ -4,6 +4,8 @@ if status is-interactive
   ~/.rbenv/bin/rbenv init - fish | source
   fish_add_path -m ~/.rbenv/shims/
 
+  fish_add_path -m ~/.local/bin/
+
   alias s="subl ."
 
   # Rails
