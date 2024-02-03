@@ -1,7 +1,7 @@
 ---
 - name: Add 1Passwrd repo with signing key
   ansible.builtin.deb822_repository:
-    name: 1password
+    name: onepassword
     types: [deb]
     uris: "https://downloads.1password.com/linux/debian/amd64"
     suites: [stable]
