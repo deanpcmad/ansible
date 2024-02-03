@@ -1,5 +1,5 @@
 ---
-- name: Add Sublime Text repo with signing key
+- name: Add SublimeHQ repo with signing key
   ansible.builtin.deb822_repository:
     name: sublime
     types: [deb]
@@ -9,10 +9,8 @@
     state: present
     enabled: yes
 
-- name: Install Sublime Text and Sublime Merge
+- name: Install Sublime Merge
   ansible.builtin.apt:
-    name:
-      - sublime-text
-      - sublime-merge
+    name: sublime-merge
     state: present
     update_cache: true
