@@ -11,4 +11,7 @@
       - git
       - software-properties-common
       - apt-transport-https
+      # Fingerprint
+      - fprintd
+      - libpam-fprintd
     state: present
