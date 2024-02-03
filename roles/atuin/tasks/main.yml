@@ -17,7 +17,7 @@
   become: no
 
 - name: Copy atuin config
-  copy: src=./roles/atuin/files/config.fish dest=~/.config/atuin/config.toml
+  copy: src=./roles/atuin/files/config.toml dest=~/.config/atuin/config.toml
   become: no
 
 - name: Create functions directory
