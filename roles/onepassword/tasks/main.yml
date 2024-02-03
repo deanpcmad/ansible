@@ -1,5 +1,5 @@
 ---
-- name: Add 1Passwrd repo with signing key
+- name: Add 1Password repo with signing key
   ansible.builtin.deb822_repository:
     name: onepassword
     types: [deb]
