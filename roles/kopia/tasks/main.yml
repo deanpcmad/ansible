@@ -1,14 +1,14 @@
 ---
-- name: Download Kopia apt key
-  ansible.builtin.get_url:
-    url: https://kopia.io/signing-key
-    dest: /etc/apt/trusted.gpg.d/kopia.asc
-
-- name: Add Kopia repository
-  ansible.builtin.apt_repository:
-    repo: "deb http://packages.kopia.io/apt/ stable main"
-    filename: kopia
+- name: Add Kopia repo with signing key
+  ansible.builtin.deb822_repository:
+    name: kopia
+    types: [deb]
+    uris: "http://packages.kopia.io/apt"
+    suites: [stable]
+    components: [main]
+    signed_by: https://kopia.io/signing-key
     state: present
+    enabled: yes
 
 - name: Install Kopia and Kopia UI
   ansible.builtin.apt:
