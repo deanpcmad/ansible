@@ -1,22 +1,31 @@
 ---
-- name: Add Fish apt repo (Ubuntu)
-  ansible.builtin.apt_repository:
-    repo: "ppa:fish-shell/release-3"
-    state: present
-  when: ansible_distribution == "Ubuntu"
+# - name: Add Fish apt repo (Ubuntu)
+#   ansible.builtin.apt_repository:
+#     repo: "ppa:fish-shell/release-3"
+#     state: present
+#   when: ansible_distribution == "Ubuntu"
 
-- name: Download Fish apt key (Debian)
-  ansible.builtin.get_url:
-    url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key
-    dest: /etc/apt/trusted.gpg.d/fish.asc
-  when: ansible_distribution == "Debian"
+# - name: Download Fish apt key (Debian)
+#   ansible.builtin.get_url:
+#     url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key
+#     dest: /etc/apt/trusted.gpg.d/fish.asc
+#   when: ansible_distribution == "Debian"
 
-- name: Add Fish repository (Debian)
-  ansible.builtin.apt_repository:
-    repo: "deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12/ /"
-    filename: fish
+# - name: Add Fish repository (Debian)
+#   ansible.builtin.apt_repository:
+#     repo: "deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12/ /"
+#     filename: fish
+#     state: present
+#   when: ansible_distribution == "Debian"
+
+- name: Add Fish repo with signing key
+  ansible.builtin.deb822_repository:
+    name: fish
+    types: [deb]
+    uris: "http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12"
+    signed_by: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key
     state: present
-  when: ansible_distribution == "Debian"
+    enabled: yes
 
 - name: Install Fish
   ansible.builtin.apt:
