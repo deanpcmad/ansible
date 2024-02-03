@@ -23,6 +23,7 @@
     name: fish
     types: [deb]
     uris: "http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12"
+    suites: [/]
     signed_by: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key
     state: present
     enabled: yes
