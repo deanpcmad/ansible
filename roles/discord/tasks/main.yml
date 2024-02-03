@@ -1,0 +1,16 @@
+---
+- name: Add Discord repo with signing key
+  ansible.builtin.deb822_repository:
+    name: discord
+    types: [deb]
+    uris: "https://palfrey.github.io/discord-apt/debian"
+    suites: ["./"]
+    signed_by: https://palfrey.github.io/discord-apt/discord-apt.gpg.asc
+    state: present
+    enabled: yes
+
+- name: Install Discord
+  ansible.builtin.apt:
+    name: discord
+    state: present
+    update_cache: true
