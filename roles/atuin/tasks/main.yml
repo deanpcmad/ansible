@@ -1,0 +1,32 @@
+---
+- name: Install Atuin
+  block:
+    - name: Download Atuin install script
+      ansible.builtin.get_url:
+        url: https://raw.githubusercontent.com/ellie/atuin/main/install.sh
+        dest: /tmp/atuin_install.sh
+        mode: '0755'
+
+    - name: Run Atuin install script
+      ansible.builtin.shell: /tmp/atuin_install.sh
+
+- name: Create atuin directory
+  file:
+    state: directory
+    path: '~/.config/atuin/'
+  become: no
+
+- name: Copy atuin config
+  copy: src=./roles/atuin/files/config.fish dest=~/.config/atuin/config.toml
+  become: no
+
+- name: Create functions directory
+  file:
+    state: directory
+    path: '~/.config/fish/functions'
+  become: no
+
+- name: Copy fish config
+  copy: src=./roles/fish/files/config.fish dest=~/.config/fish/config.fish
+  become: no
+
