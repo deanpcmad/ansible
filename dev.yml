@@ -12,7 +12,6 @@
       - 3.2.3
       - 3.1.4
     rbenv_default_ruby: 3.3.0
-    tailscale_up_skip: true
 
   roles:
     - update

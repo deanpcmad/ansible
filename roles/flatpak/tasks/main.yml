@@ -10,16 +10,6 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# - name: Install the Firefox flatpak
-#   community.general.flatpak:
-#     name: org.mozilla.firefox
-#     state: present
-
-# - name: Install the Thunderbird flatpak
-#   community.general.flatpak:
-#     name: org.mozilla.Thunderbird
-#     state: present
-
 - name: Install the Google Chrome flatpak
   community.general.flatpak:
     name: com.google.Chrome
@@ -49,11 +39,6 @@
   community.general.flatpak:
     name: org.cryptomator.Cryptomator
     state: present
-
-# - name: Install the Postman flatpak
-#   community.general.flatpak:
-#     name: com.getpostman.Postman
-#     state: present
 
 - name: Install the DBeaver flatpak
   community.general.flatpak:
