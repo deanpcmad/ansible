@@ -15,7 +15,9 @@
 
 - name: Install Firefox
   ansible.builtin.apt:
-    name: firefox
+    name:
+      - firefox
+      - firefox-devedition
     state: present
     update_cache: true
 
