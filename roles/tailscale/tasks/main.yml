@@ -1,0 +1,17 @@
+---
+- name: Add Tailscale repo with signing key
+  ansible.builtin.deb822_repository:
+    name: tailscale
+    types: [deb]
+    uris: "https://pkgs.tailscale.com/stable/debian"
+    suites: [bookworm]
+    components: [main]
+    signed_by: https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg
+    state: present
+    enabled: yes
+
+- name: Install Tailscale
+  ansible.builtin.apt:
+    name: code
+    state: tailscale
+    update_cache: true
