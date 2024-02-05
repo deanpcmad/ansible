@@ -49,3 +49,8 @@
   community.general.flatpak:
     name: com.valvesoftware.Steam
     state: present
+
+- name: Install the Flatseal flatpak
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    state: present
