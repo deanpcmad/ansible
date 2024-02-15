@@ -1,5 +1,5 @@
 ---
-- name: Add Fish repo with signing key
+- name: Add Fish repo with signing key (Debian)
   ansible.builtin.deb822_repository:
     name: fish
     types: [deb]
@@ -8,6 +8,13 @@
     signed_by: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_12/Release.key
     state: present
     enabled: yes
+  when: ansible_distribution == "Debian"
+
+- name: Add Fish apt repo (Ubuntu)
+  ansible.builtin.apt_repository:
+    repo: "ppa:fish-shell/release-3"
+    state: present
+  when: ansible_distribution == "Ubuntu"
 
 - name: Install Fish
   ansible.builtin.apt:
