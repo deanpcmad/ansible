@@ -8,34 +8,23 @@
     docker_users:
       - "dean"
     rbenv_versions:
-      - 3.2.2
-      - 3.1.2
-    rbenv_default_ruby: 3.2.2
+      - 3.3.0
+      - 3.2.3
+      - 3.1.4
+    rbenv_default_ruby: 3.3.0
     tailscale_up_skip: true
 
   roles:
     - update
     - common
     - geerlingguy.docker
-    - artis3n.tailscale
     - users-dean
     - fish
     - { name: dotfiles, become: no }
     - { name: rbenv, become: no }
-    #- debian-unstable
     - aws
-    #- flatpak
-    #- 1password
-    #- vscode
-    #- sublime
-    #- kopia
 
   tasks:
-    #- name: Remove Firefox-ESR
-    #  ansible.builtin.apt:
-    #    name: firefox-esr
-    #    state: absent
-
     - name: Install database libraries
       ansible.builtin.apt:
         name:
@@ -51,7 +40,4 @@
         name:
           - ffmpeg
           - libvips42
-          #- vlc
-          #- libavcodec-extra
-          #- zsh
         state: present
