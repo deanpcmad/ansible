@@ -19,6 +19,7 @@
     - common
     - geerlingguy.docker
     - users-dean
+    - atuin
     - fish
     - { name: dotfiles, become: no }
     - { name: rbenv, become: no }
