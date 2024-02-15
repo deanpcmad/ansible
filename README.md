@@ -5,9 +5,10 @@ This repo contains a collection of Ansible playbooks I use to configure my machi
 ## Initial Install
 
 ```bash
-apt install -y python3-pip
+apt install -y python3-virtualenv git
 
-pip3 install ansible --break-system-packages
+virtualenv ~/.local
+~/.local/bin/pip3 install ansible
 
 git clone https://github.com/deanpcmad/ansible.git
 cd ansible
@@ -29,7 +30,7 @@ cd ansible
 
 ```bash
 # -K to enter sudo password
-ansible-playbook dev.yml -K
+~/.local/bin/ansible-playbook dev.yml -K
 
 # install fnm
 curl -fsSL https://fnm.vercel.app/install | bash
