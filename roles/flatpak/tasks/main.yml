@@ -28,7 +28,7 @@
 - name: Install the Discord flatpak
   community.general.flatpak:
     name: com.discordapp.Discord
-    state: absent
+    state: present
 
 - name: Install the Obsidian flatpak
   community.general.flatpak:
