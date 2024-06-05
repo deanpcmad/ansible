@@ -9,13 +9,3 @@
 
     - name: Run Atuin install script
       ansible.builtin.shell: /tmp/atuin_install.sh
-
-- name: Create atuin directory
-  file:
-    state: directory
-    path: '~/.config/atuin/'
-  become: no
-
-- name: Copy atuin config
-  copy: src=./roles/atuin/files/config.toml dest=~/.config/atuin/config.toml
-  become: no
