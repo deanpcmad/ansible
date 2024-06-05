@@ -1,0 +1,18 @@
+---
+- name: Download GitHub signing key
+  ansible.builtin.get_url:
+    url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+    dest: /etc/apt/trusted.gpg.d/github.gpg
+
+- name: Add GitHub CLI repository
+  ansible.builtin.apt_repository:
+    repo:  "deb [signed-by=/etc/apt/trusted.gpg.d/github.gpg] https://cli.github.com/packages stable main"
+    filename: github-cli
+    state: present
+    update_cache: yes
+
+- name: Install Github CLI
+  ansible.builtin.apt:
+    name: gh
+    state: present
+    update_cache: true

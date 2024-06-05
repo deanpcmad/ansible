@@ -19,6 +19,7 @@
     - tailscale
     - mozilla
     - aws
+    - github-cli
     - flatpak
     - onepassword
     - vscode
