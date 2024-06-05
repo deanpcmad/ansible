@@ -29,10 +29,10 @@
     accept_hostkey: yes
 
 - name: Install ruby plugin
-  shell: "~/.asdf/bin/asdf plugin install ruby"
+  shell: "~/.asdf/bin/asdf plugin add ruby"
 
 - name: Install nodejs plugin
-  shell: "~/.asdf/bin/asdf plugin install nodejs"
+  shell: "~/.asdf/bin/asdf plugin add nodejs"
 
 - name: Install Ruby 3.3.2
   shell: "~/.asdf/bin/asdf install ruby 3.3.2"
