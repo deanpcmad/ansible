@@ -20,7 +20,7 @@
     - mozilla
     - aws
     - flatpak
-    - onepassword
+    # - onepassword
     - vscode
     - sublime
     - discord
