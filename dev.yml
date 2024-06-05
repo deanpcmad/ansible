@@ -49,4 +49,5 @@
           - libvips42
           - vlc
           - libavcodec-extra
+          - yakuake
         state: present
