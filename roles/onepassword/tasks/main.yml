@@ -1,30 +1,22 @@
 ---
-# - name: Add 1Password repo with signing key
-#   ansible.builtin.deb822_repository:
-#     name: onepassword
-#     types: [deb]
-#     uris: "https://downloads.1password.com/linux/debian/amd64"
-#     suites: [stable]
-#     components: [main]
-#     signed_by: https://downloads.1password.com/linux/keys/1password.asc
-#     state: present
-#     enabled: yes
-
-- name: Download 1Password Key
+- name: Download 1Password DEB
   ansible.builtin.get_url:
-    url: https://downloads.1password.com/linux/keys/1password.asc
-    dest: /etc/apt/trusted.gpg.d/1password.asc
+    url: https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb
+    dest: /tmp/1password-latest.deb
+    mode: 0440
 
-- name: Add 1Passwrd repository
-  ansible.builtin.apt_repository:
-    repo:  "deb [signed-by=/etc/apt/trusted.gpg.d/1password.asc] https://downloads.1password.com/linux/debian/amd64 stable main"
-    state: present
-    update_cache: yes
-
-- name: Install 1Password and 1Password CLI
+- name: Install 1Password
   ansible.builtin.apt:
-    name:
-      - 1password
-      - 1password-cli
+    deb: /tmp/1password-latest.deb
     state: present
-    update_cache: true
+
+- name: Download 1Password CLI DEB
+  ansible.builtin.get_url:
+    url: https://downloads.1password.com/linux/debian/amd64/stable/1password-cli-amd64-latest.deb
+    dest: /tmp/1password-cli-amd64-latest.deb
+    mode: 0440
+
+- name: Install 1Password CLI
+  ansible.builtin.apt:
+    deb: /tmp/1password-cli-amd64-latest.deb
+    state: present
