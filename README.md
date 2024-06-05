@@ -23,9 +23,9 @@ cd ansible
 - Installs VSCode
 - Installs Sublime Text & Sublime Merge
 - Installs Tailscale
-- Installs RBenv and installs Ruby 3.2.2 as part of that
+- Installs asdf with Ruby and NodeJS plugins. Also installs Ruby 3.3.2 and NodeJS 20.14.0
 - Installs and configures Flatpak
-- Installs other apps such as 1Password, Spotify & Discord
+- Installs other apps, using Flatpak, such as 1Password, Spotify & Discord
 - Installs Fish shell and sets it as the default shell
 
 ```bash
