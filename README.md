@@ -18,14 +18,21 @@ cd ansible
 
 ## Dev Machines, running on Debian 12
 
+Install Debian 12 with KDE.
+
+This Ansible playbook will install the following:
+
 - Removes Firefox ESR and installs Firefox from the unstable repo.
 - Installs Docker
 - Installs VSCode
-- Installs Sublime Text & Sublime Merge
+- Installs Sublime Merge
 - Installs Tailscale
-- Installs asdf with Ruby and NodeJS plugins. Also installs Ruby 3.3.2 and NodeJS 20.14.0
+- Installs GitHub CLI
+- Installs Kopia & Kopia UI
+- Installs 1Password
+- Installs asdf with Ruby and NodeJS plugins. Installs Ruby 3.3.2.
 - Installs and configures Flatpak
-- Installs other apps, using Flatpak, such as 1Password, Spotify & Discord
+- Installs other apps, using Flatpak, such as Spotify & Discord
 - Installs Fish shell and sets it as the default shell
 
 ```bash
