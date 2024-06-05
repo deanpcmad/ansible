@@ -1,14 +1,25 @@
 ---
-- name: Add 1Password repo with signing key
-  ansible.builtin.deb822_repository:
-    name: onepassword
-    types: [deb]
-    uris: "https://downloads.1password.com/linux/debian/amd64"
-    suites: [stable]
-    components: [main]
-    signed_by: https://downloads.1password.com/linux/keys/1password.asc
+# - name: Add 1Password repo with signing key
+#   ansible.builtin.deb822_repository:
+#     name: onepassword
+#     types: [deb]
+#     uris: "https://downloads.1password.com/linux/debian/amd64"
+#     suites: [stable]
+#     components: [main]
+#     signed_by: https://downloads.1password.com/linux/keys/1password.asc
+#     state: present
+#     enabled: yes
+
+- name: Download 1Password Key
+  ansible.builtin.get_url:
+    url: https://downloads.1password.com/linux/keys/1password.asc
+    dest: /etc/apt/trusted.gpg.d/1password.asc
+
+- name: Add 1Passwrd repository
+  ansible.builtin.apt_repository:
+    repo:  "deb [signed-by=/etc/apt/trusted.gpg.d/1password.asc] https://downloads.1password.com/linux/debian/amd64 stable main"
     state: present
-    enabled: yes
+    update_cache: yes
 
 - name: Install 1Password and 1Password CLI
   ansible.builtin.apt:
