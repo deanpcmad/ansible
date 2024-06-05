@@ -49,5 +49,4 @@
           - libvips42
           - vlc
           - libavcodec-extra
-          - zsh
         state: present
