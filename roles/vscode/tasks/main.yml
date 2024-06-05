@@ -1,14 +1,15 @@
 ---
-- name: Add VSCode repo with signing key
-  ansible.builtin.deb822_repository:
+- name: Download Microsoft signing key
+  ansible.builtin.get_url:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    dest: /etc/apt/trusted.gpg.d/microsoft.asc
+
+- name: Add VSCode repository
+  ansible.builtin.apt_repository:
+    repo:  "deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/code stable main"
     name: vscode
-    types: [deb]
-    uris: "https://packages.microsoft.com/repos/code"
-    suites: [stable]
-    components: [main]
-    signed_by: https://packages.microsoft.com/keys/microsoft.asc
     state: present
-    enabled: yes
+    update_cache: yes
 
 - name: Install VSCode
   ansible.builtin.apt:
