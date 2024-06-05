@@ -7,11 +7,6 @@
     docker_install_compose: false
     docker_users:
       - "dean"
-    rbenv_versions:
-      - 3.3.0
-      - 3.2.3
-      - 3.1.4
-    rbenv_default_ruby: 3.3.0
 
   roles:
     - update
@@ -21,7 +16,7 @@
     - atuin
     - fish
     - { name: dotfiles, become: no }
-    - { name: rbenv, become: no }
+    - { name: asdf, become: no }
     - tailscale
     - mozilla
     - aws
