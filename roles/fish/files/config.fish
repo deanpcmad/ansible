@@ -22,6 +22,7 @@ if status is-interactive
 
   # Run Docker Compose dev
   alias dcdev="docker compose -f docker-compose.dev.yml up"
+  alias dc="docker compose"
 
   # Jekyll
   alias js="be jekyll s -H 0.0.0.0"
