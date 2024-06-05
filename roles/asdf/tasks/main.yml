@@ -37,11 +37,11 @@
 - name: Install Ruby 3.3.2
   shell: "~/.asdf/bin/asdf install ruby 3.3.2"
 
-- name: Install Node.js 20.14.0
-  shell: "~/.asdf/bin/asdf install nodejs 20.14.0"
-
 - name: Set Ruby 3.3.2 as default
   shell: "~/.asdf/bin/asdf global ruby 3.3.2"
 
-- name: Set Node.js 20.14.0 as default
-  shell: "~/.asdf/bin/asdf global nodejs 20.14.0"
+# - name: Install Node.js 20.14.0
+#   shell: "~/.asdf/bin/asdf install nodejs 20.14.0"
+
+# - name: Set Node.js 20.14.0 as default
+#   shell: "~/.asdf/bin/asdf global nodejs 20.14.0"
