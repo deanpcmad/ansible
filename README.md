@@ -32,10 +32,7 @@ cd ansible
 # -K to enter sudo password
 ~/.local/bin/ansible-playbook dev.yml -K
 
-# install fnm
-curl -fsSL https://fnm.vercel.app/install | bash
-source ~/.config/fish/conf.d/fnm.fish
-fnm install 18.17.0
-npm install -g npm
-npm install -g yarn
+# install NodeJS with asdf
+~/.asdf/bin/asdf install nodejs 20.14.0
+~/.asdf/bin/asdf global nodejs 20.14.0
 ```
