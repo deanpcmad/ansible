@@ -4,9 +4,8 @@ if status is-interactive
   # Atuin
   atuin init fish | source
 
-  # RBenv
-  ~/.rbenv/bin/rbenv init - fish | source
-  fish_add_path -m ~/.rbenv/shims/
+  # ASDF
+  source ~/.asdf/asdf.fish
 
   # Add .local/bin to the PATH
   fish_add_path -m ~/.local/bin/
