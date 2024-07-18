@@ -1,0 +1,49 @@
+---
+- name: Install development requirements
+  ansible.builtin.apt:
+    name:
+      - build-essential
+      - autoconf
+      - patch
+      - rustc
+      - libyaml-dev
+      - libreadline6-dev
+      - libgmp-dev
+      - libncurses5-dev
+      - libffi-dev
+      - libgdbm6
+      - libgdbm-dev
+      - libdb-dev
+      - uuid-dev
+      - zlib1g-dev
+      - libssl-dev
+      - gnupg
+      - automake
+    state: present
+  become: yes
+
+- name: Install Mise
+  block:
+    - name: Download Mise install script
+      ansible.builtin.get_url:
+        url: https://mise.run
+        dest: /tmp/mise_install.sh
+        mode: '0755'
+
+    - name: Run Mise install script
+      ansible.builtin.shell: /tmp/mise_install.sh
+
+- name: Install Ruby 3.3.4
+  shell: "~/.local/bin/mise install ruby 3.3.4"
+
+- name: Install Node 20.15.1
+  shell: "~/.local/bin/mise install node 20.15.1"
+
+- name: Install Bun
+  shell: "~/.local/bin/mise install bun"
+
+- name: Set Ruby Default
+  shell: "~/.local/bin/mise use -g ruby@3.3.4"
+
+- name: Set Node Default
+  shell: "~/.local/bin/mise use -g node@20.15.1"

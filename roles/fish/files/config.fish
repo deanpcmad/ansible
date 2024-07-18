@@ -4,8 +4,11 @@ if status is-interactive
   # Atuin
   atuin init fish | source
 
-  # ASDF
-  source ~/.asdf/asdf.fish
+  # Mise
+  ~/.local/bin/mise activate fish | source
+
+  # Starship
+  starship init fish | source
 
   # Add .local/bin to the PATH
   fish_add_path -m ~/.local/bin/

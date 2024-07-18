@@ -31,13 +31,25 @@ This Ansible playbook will install the following:
 - Installs GitHub CLI
 - Installs Kopia & Kopia UI
 - Installs 1Password
-- Installs Mise with Ruby 3.3.4, Node 20.20.1 & Bun
+- Installs Mise with Ruby 3.3.4, Node 20.15.1 & Bun
 - Installs and configures Flatpak
 - Installs other apps, using Flatpak, such as Spotify & Discord
 - Installs Fish shell and sets it as the default shell
-- Installs [Starship Prompt](https://starship.rs/)
 
 ```bash
 # -K to enter sudo password
 ~/.local/bin/ansible-playbook dev.yml -K
+
+# Install Starship Prompt
+curl -sS https://starship.rs/install.sh | sh
+```
+
+### GPG
+
+```bash
+gpg --full-generate-key
+gpg --list-secret-keys --keyid-format=long
+gpg --armor --export KEY
+git config --global user.signingkey  KEY
+git config --global commit.gpgsign true
 ```

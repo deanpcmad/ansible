@@ -9,22 +9,23 @@
       - "dean"
 
   roles:
-    - update
-    - common
-    - geerlingguy.docker
-    - atuin
-    - fish
-    - { name: dotfiles, become: no }
-    - { name: asdf, become: no }
-    - tailscale
-    - mozilla
-    - aws
-    - github-cli
-    - flatpak
-    - onepassword
-    - vscode
-    - sublime
-    - kopia
+    - {name: mise, become: no}
+    # - update
+    # - common
+    # - mozilla
+    # - geerlingguy.docker
+    # - atuin
+    # - fish
+    # - { name: dotfiles, become: no }
+    # - { name: mise, become: no }
+    # - tailscale
+    # - aws
+    # - github-cli
+    # - flatpak
+    # - onepassword
+    # - vscode
+    # - sublime
+    # - kopia
 
   tasks:
     - name: Remove Firefox-ESR
