@@ -13,8 +13,8 @@
     - common
     - mozilla
     - geerlingguy.docker
-    - atuin
     - fish
+    - { name: atuin, become: no }
     - { name: dotfiles, become: no }
     - { name: mise, become: no }
     - tailscale

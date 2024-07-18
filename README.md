@@ -28,6 +28,7 @@ This Ansible playbook will install the following:
 - Installs VSCode
 - Installs Sublime Merge
 - Installs Tailscale
+- Installs Atuin
 - Installs GitHub CLI
 - Installs Kopia & Kopia UI
 - Installs 1Password

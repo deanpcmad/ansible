@@ -3,7 +3,7 @@
   block:
     - name: Download Atuin install script
       ansible.builtin.get_url:
-        url: https://raw.githubusercontent.com/ellie/atuin/main/install.sh
+        url: https://raw.githubusercontent.com/atuinsh/atuin/main/install.sh
         dest: /tmp/atuin_install.sh
         mode: '0755'
 
