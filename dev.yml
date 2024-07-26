@@ -27,11 +27,6 @@
     - kopia
 
   tasks:
-    - name: Remove Firefox-ESR
-      ansible.builtin.apt:
-        name: firefox-esr
-        state: absent
-
     - name: Install database libraries
       ansible.builtin.apt:
         name:

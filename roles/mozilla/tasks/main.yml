@@ -1,4 +1,9 @@
 ---
+- name: Remove Firefox-ESR
+  ansible.builtin.apt:
+    name: firefox-esr
+    state: absent
+
 - name: Add Mozilla repo with signing key
   ansible.builtin.deb822_repository:
     name: mozilla
